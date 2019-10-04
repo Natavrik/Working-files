@@ -21,22 +21,19 @@
         }
 
         int getID_painter() {return ID_painter;}
-        void show() { cout <<"\t" << ID_painter <<"\t\t"<< FIO_painter << endl; }
+        void show() {
+            cout.width(26); cout << left << ID_painter;
+            cout.width(20); cout << left << FIO_painter << endl; }
 
     };
     void show(Authors* a, int n)
     {
-        cout << "Идентификационный №     ФИО художника\n\n";
+        cout << "Идентификационный №       ФИО художника\n\n";
             for (int i = 0; i < n; i++)
             {
                 a[i].show();
             }
     }
-
-
-
-
-
 
     class Sections
     {
@@ -54,21 +51,18 @@
             this->NUM_section=NUM_section;
         }
         int getNUM_section() {return NUM_section;}
-        void show(){cout << "    " << NUM_section << "\t\t" << Section_Title << endl; }
+        void show(){
+            cout.width(20); cout << left << NUM_section;
+            cout.width(20); cout << left << Section_Title << endl; }
     };
     void show(Sections* s, int n)
     {
-        cout << "№ раздела\tНазвание раздела\n\n";
+        cout << "№ раздела\t    Название раздела\n\n";
             for (int i = 0; i < n; i++)
             {
                 s[i].show();
             }
     }
-
-
-
-
-
 
     class Pictures
     {
@@ -98,7 +92,7 @@
         void show() {
                      cout.width(20); cout << left << NUM_picture;
                      cout.width(25); cout << left << Picture_Title;
-                     cout.width(20); cout << left << ID_painterPic -> getID_painter();
+                     cout.width(27); cout << left << ID_painterPic -> getID_painter();
                      cout.width(20); cout << left << NUM_sectionPic -> getNUM_section();
                      cout.width(20); cout << left << Technics;
                      cout.width(20); cout << left << Size_picture;
@@ -108,14 +102,12 @@
 
     void show(Pictures *p, int n)
     {
-        cout << "№ картины\tНазвание картины\tИдентификационный №\t№ раздела\tТехника\t\tРазмеры картины\t\tСтоимость\n\n";
+        cout << "№ картины\t    Название картины\t     Идентификационный №\t№ раздела\t    Техника\t\tРазмеры картины\t    Стоимость\n\n";
         for (int i = 0; i < n; i++)
         {
             p[i].show();
         }
     }
-
-
 
         int main()
         {
