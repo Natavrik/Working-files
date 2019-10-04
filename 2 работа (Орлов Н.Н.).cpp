@@ -75,7 +75,8 @@
         string Size_picture;
         int Cost;
     public:
-        Pictures(int NUM_picture, string Picture_Title, Authors *ID_painterPic, Sections *NUM_sectionPic, string Technics, string Size_picture, int Cost)
+        Pictures(int NUM_picture, string Picture_Title, Authors *ID_painterPic,
+                  Sections *NUM_sectionPic, string Technics, string Size_picture, int Cost)
         {
             this->NUM_picture = NUM_picture;
             this->Picture_Title = Picture_Title;
@@ -102,7 +103,8 @@
 
     void show(Pictures *p, int n)
     {
-        cout << "№ картины\t    Название картины\t     Идентификационный №\t№ раздела\t    Техника\t\tРазмеры картины\t    Стоимость\n\n";
+        cout << "№ картины\t    Название картины\t     Идентификационный №\t"
+                "№ раздела\t    Техника\t\tРазмеры картины\t    Стоимость\n\n";
         for (int i = 0; i < n; i++)
         {
             p[i].show();
