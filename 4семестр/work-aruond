@@ -1,0 +1,194 @@
+/* потом элемент класса, потом шаблон, переход к динамическим спискам
+ создание кругового массива и заполнение начинается с головы, а убывание (get) происходит с конца массива. 
+ 
+ 
+ 
+ функция set:
+
+ если  head  =   0
+ тогда ничего не проиходит
+ 
+ если  head  =   1,2,3,4,5
+ тогда  мы спокойно может добавить элемент к head 
+
+ если head = 6
+ тогда следующий элемент head будет равен значению 0
+ (тоесть станет первым элементов в массиве ибо цикл цикличен в цикле)
+
+
+ функция get: 
+
+ если tale  = 0 и head = 1
+ тогда убираем голову 
+ 
+ 
+ 
+ */
+
+#include <iostream>
+using namespace std;
+
+bool get(double* , int , int& , int , double&);
+bool set(double* , int , int, int&); 
+void show(double*, int , int);
+
+bool get(double* A, int n, int& tale, int head, double& a)
+{
+    if (tale == head) return false;    
+        a = A[tale];
+        tale++;
+            if (tale == n)
+            {
+                tale = 0;
+                tale++;
+            }
+            return true;
+}
+
+// установка 
+bool set(double* A, int n, int tale, int& head)
+{
+    if (head == 0 && tale == 0) return false;
+    if (head > 0 && head < n) head++;
+    if (head == tale) 
+    return true;
+}
+// вывод массива
+void show(double* A, int tale, int head) { cout << *A << tale << head  << endl; }
+
+int main()
+{
+    setlocale(0, "");
+    double a;
+    const int n = 6;
+    cout << "Массив: " << '\n';
+    double A[n] = {32, 77, 54};
+    for (int i = 0; i < n; i++) {
+        cout << A[i] << '\t';
+    }
+    cout << "\n+_+_+_+_+_+_+\n\n";
+    int tale = 0;
+    int head = 3;
+    show(A, 0, 3);
+    set(A, 6, 0, head);
+    get(A, 6, tale, 5, a);
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+int main()
+{    //главная функция программы
+    int mas[5] = {5, 6, 7};    //одномерный массив из 5 элементов
+    for (int i = 0; i < 5; i++)
+        cout << mas[i] << "\t";     //вывод на экран
+    cout << endl;
+    cin.get();
+    return 0;
+}
+
+*/
+
+
+
+
+/*
+class Spisok
+{
+private:
+    double a; // элемент, хранящийся в списке
+    Spisok* next;
+    Spisok* prev;
+public:
+    Spisok(double a) // конструктор добавления элемента в список 
+    {
+        this->a = a;
+        next = NULL;
+        prev = NULL;
+    }
+    void add(double a)// пустая функция добавления элемента в список
+    {
+        Spisok* p = new Spisok(a); //создали новый объект p и записали туда данные 
+        if (next)
+        {
+            next->prev = p; //head  указывает на next второго созданного элемента P, где указывает на p.prev
+            p->next = next; //указатель p.next указывает на head.next и этот указатель становится главным 
+            next = p; // главный указатель снова указывает на объект P, а именно на указатель next и таким образом можем связывать все остальные
+        }
+        else
+        {
+            next = p; // в случае, когда следующий next у нового элемента пуст, срабатывает else  
+            prev = p; // и план управления переходит к новому элементу. и получается грубо говря, что новый элемент P ставновится как head.
+        }
+    }
+    void show()
+    {
+        for (Spisok* p = next; p; p = p->next) // если "p" нулевой (пустой и там ничего нет), то нет смысла искать дальше следующие элементы, потому что его нет. 
+        {
+            cout << p->a << endl;
+        }
+        cout << endl;
+    }
+
+    void del(double a)
+    {
+        for (Spisok* p = next; p; p->next)
+        {
+            if (p->a = a)
+            {
+                if (prev) prev->next;
+                delete p;
+            }
+            else
+            {
+                prev = p;
+            }
+            p = next;
+        }
+    }
+
+
+
+
+};
+
+
+
+
+
+int main()
+{
+    Spisok head(0);
+    head.add(4);
+    head.add(2);
+    head.add(7);
+    head.show();
+    head.add(5);
+    head.show();
+    head.add(6);
+    head.show();
+    head.add(7);
+    head.show();
+    head.del(4);
+    cin.get();
+    return 0;
+}
+*/
