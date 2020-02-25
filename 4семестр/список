@@ -1,0 +1,85 @@
+
+
+#include <iostream>
+using namespace std;
+
+class Spisok
+{
+private:
+    double a; // элемент, хранящийся в списке
+    Spisok* next;
+    Spisok* prev;
+public:
+    Spisok(double a) // конструктор добавления элемента в список 
+    {
+        this -> a = a;
+        next = NULL;
+        prev = NULL;
+    }
+    void add(double a)// пустая функция добавления элемента в список
+    {
+        Spisok* p = new Spisok(a); //создали новый объект p и записали туда данные 
+        if (next)
+        {
+            next->prev = p; //head  указывает на next второго созданного элемента P, где указывает на p.prev
+            p->next = next; //указатель p.next указывает на head.next и этот указатель становится главным 
+            next = p; // главный указатель снова указывает на объект P, а именно на указатель next и таким образом можем связывать все остальные
+        }
+        else
+        {
+            next = p; // в случае, когда следующий next у нового элемента пуст, срабатывает else  
+            prev = p; // и план управления переходит к новому элементу. и получается грубо говря, что новый элемент P ставновится как head.
+        }
+    }
+    void show()
+    {
+        for (Spisok* p = next; p; p=p->next) // если "p" нулевой (пустой и там ничего нет), то нет смысла искать дальше следующие элементы, потому что его нет. 
+        {
+            cout << p->a << endl;
+        }
+        cout << endl;
+    }
+    
+    void del(double a)
+    {
+        for (Spisok* p = next; p; p->next)
+        {
+            if (p->a = a)
+            { 
+                if (prev) prev->next;
+                delete p;
+            }
+            else
+            {
+                prev = p;
+            }
+            p = next;
+        }
+    }
+    
+
+
+
+};
+
+
+
+
+
+int main()
+{
+    Spisok head(0);
+    head.add(4);
+    head.add(2);
+    head.add(7);
+    head.show();
+    head.add(5);
+    head.show();
+    head.add(6);
+    head.show();
+    head.add(7);
+    head.show();
+    head.del(4);
+    cin.get();
+    return 0;
+}
