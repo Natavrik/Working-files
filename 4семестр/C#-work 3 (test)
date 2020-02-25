@@ -1,0 +1,41 @@
+using System;
+
+namespace work_3_Rbhttd_
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {/*
+            // ограничение по R
+            // ограничение по уравнеиню приямой Y > = -2x
+            //
+
+            Console.WriteLine(" ");
+
+            Console.WriteLine("введите радиус R: ");
+            double R = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("введите х: ");
+            double x = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("введите y: ");
+            double y = Convert.ToDouble(Console.ReadLine());
+            if (Math.Sqrt(x*x + y*y) <= R)
+            {
+                if ((x <= R) && (y <= R) && (x >= -R) && (y >= -R)) //ограничение
+                {
+                    Console.WriteLine("+");
+                }
+                if (( x <= 0 && y >= 0) || ( x >= 0 && y <= 0 )) // разбиваем на 3 части
+                {
+                    Console.WriteLine("++");
+                }
+                else Console.WriteLine("--");
+            }
+            
+           */
+
+
+            private int value;
+        ()
+        }
+    }
+}
